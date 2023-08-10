@@ -11,21 +11,31 @@ def setup():
         print("Success! Setup complete.")
     else:
         print("CLINotes has already been setup.")
-    
+
+def getCSVLen():
+    with open("CLINotes.csv", "r") as csvfile:
+        reader = csv.DictReader(csvfile)
+        csvLen = 0
+        for row in reader:
+            csvLen += 1
+        return csvLen
+
+def getNewID():
+        with open("CLINotes.csv", "r") as csvfile:
+            reader = csv.DictReader(csvfile)
+            csvLen = getCSVLen()
+            rowCount = 0
+            for row in reader:
+                rowCount += 1
+                if rowCount == csvLen:
+                    return int(row['ID']) + 1
+            return 0
 
 def create():
     note = Note.createNote()
-    newId = 0
-    with open("CLINotes.csv", "r") as csvfile:
-        reader = csv.DictReader(csvfile)
-        csvLen = sum(1 for row in reader)
-        rowCount = 0
-        for row in reader:
-            if rowCount == csvLen:
-                newId = int(row['ID']) + 1
-
+    newId = getNewID()
     with open("CLINotes.csv", "a") as csvfile:
-        fieldnames = ['ID', 'Title', 'Content', 'Date']
+        fieldnames = ['ID', 'Title', 'Note', 'Date']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writerow({'ID': newId, 'Title': note.title, 'Note': note.note, 'Date': note.date})
     print("Note Created")
