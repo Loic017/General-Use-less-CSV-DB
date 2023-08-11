@@ -13,8 +13,9 @@ Cons:
 
 # To Do
 
--   [] Create CSV table: Setup a new CSV file
--   [] Create CSV heading: Set the headings for a created CSV
+-   [x] Create CSV table: Setup a new CSV file
+-   [x] Create CSV headings: Set the headings for a created CSV
+-   [x] Drop CSV table: Delete whole CSV table
 -   [] Add heading: Add a heading to an existing CSV
 -   [] Drop heading: Delete a heading from an existing CSV
 -   [] Modify heading: Change a heading in an existing CSV
