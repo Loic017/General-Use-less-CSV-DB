@@ -1,7 +1,15 @@
 # General Use(less) CSV DB
 
-A command line python program that setups local csv databases (aka sets up regular csv files that you can maintain on the command line).
+A user friendly command line python program that setups local csv databases (aka sets up regular csv files that you can maintain on the command line).
 Dbs arent secure, just for fun - or another note taking tool.
+
+Pros:
+
+-   Uses a prompt based system to guide the user through database creation, no need for long multiple line statements
+
+Cons:
+
+-   Doesnt have much real purpose
 
 # To Do
 
@@ -11,7 +19,9 @@ Dbs arent secure, just for fun - or another note taking tool.
 -   [] Drop heading: Delete a heading from an existing CSV
 -   [] Modify heading: Change a heading in an existing CSV
 -   [] Connect to a CSV: Open a CSV table
+
     (Maybe ->)
+
 -   [] CSV Pins: Add a pin to a CSV (?), Can only access csv with pin (Kind of useless since you can just open the csv file but why not)
 
 # Setup

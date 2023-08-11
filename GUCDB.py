@@ -2,15 +2,52 @@ from note import Note
 import csv
 import os
 
-def setup():
-    if not os.path.exists("CLINotes.csv"):
-        with open("CLINotes.csv", "w") as csvfile:
-            fieldnames = ['ID', 'Title', 'Note', 'Date']
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+def connectTable():
+    print("Enter CSV Table Name")
+    tableName = input(">> ")
+    if not os.path.exists(str(tableName) + ".csv"):
+        print(f"{tableName} does not exist.")
+        return
+    
+    isConnected = True
+    while isConnected:
+        print(f"Connected to {tableName}.")
+        # Commands etc go here
+        connectedUserInput = input(">> ")
+        if connectedUserInput == "quit":
+            isConnected = False
+            print(f"Disconnected from {tableName}.")
+            return
+
+
+def setupTable():
+    print("Enter CSV Table Name")
+    tableName = input(">> ")
+    if not os.path.exists(str(tableName) + ".csv"):
+        print("Enter headings (Headings must be seperated by a & symbol and no spaces)")
+        tableName = input(">> ")
+        fieldNames = tableName.split("&")
+        with open(str(tableName) + ".csv", "w") as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=fieldNames)
             writer.writeheader()
-        print("Success! Setup complete.")
+        print(f"Success! Setup for '{tableName}' complete.")
     else:
-        print("CLINotes has already been setup.")
+        print(f"{tableName} has already been created.")
+
+def dropTable():
+    print("Enter CSV Table Name")
+    tableName = input(">> ")
+    if not os.path.exists(str(tableName) + ".csv"):
+        print(f"{tableName} does not exist.")
+    else:
+        print(f"Table found, type 'delete {tableName}' confirm delete. This cannot be reversed.")
+        confirmationDropTable = input(">> ")
+        
+        if confirmationDropTable == f"delete {tableName}":
+            os.remove(str(tableName) + ".csv")
+            print(f"'{tableName}' has deleted.")
+        else:
+            print(f"Confirmation input is incorrect. Table drop has stopped.")
 
 def getCSVLen():
     with open("CLINotes.csv", "r") as csvfile:
@@ -78,7 +115,7 @@ def main():
     print("Welcome to CLINotes!")
     print("              ")
     print("Commands:")
-    print("> setup - Setup CLI notes")
+    print("> setupTable - Setup CLI notes")
     print("> create - Create a note")
     print("> editNoteTitle - Edit a note title")
     print("> displayNotes - Display all notes")
