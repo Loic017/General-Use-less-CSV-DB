@@ -2,17 +2,17 @@
 
 A command line python program that setups local csv databases (aka sets up regular csv files that you can maintain on the command line).
 Dbs arent secure, just for fun - or another note taking tool.
-
-# To Do
-
--   [] Create CSV table: Setup a new CSV file
--   [] Create CSV heading: Set the headings for a created CSV
--   [] Add heading: Add a heading to an existing CSV
--   [] Drop heading: Delete a heading from an existing CSV
--   [] Modify heading: Change a heading in an existing CSV
--   [] Connect to a CSV: Open a CSV table
+  
+## To Do
+-   [ ] Create CSV, add entries, edit entries, view entrie(s), delete entries
+-   [ ] Create CSV table: Setup a new CSV file
+-   [ ] Create CSV heading: Set the headings for a created CSV
+-   [ ] Add heading: Add a heading to an existing CSV
+-   [ ] Drop heading: Delete a heading from an existing CSV
+-   [ ] Modify heading: Change a heading in an existing CSV
+-   [ ] Connect to a CSV: Open a CSV table
     (Maybe ->)
--   [] CSV Pins: Add a pin to a CSV (?), Can only access csv with pin (Kind of useless since you can just open the csv file but why not)
+-   [ ] CSV Pins: Add a pin to a CSV (?), Can only access csv with pin (Kind of useless since you can just open the csv file but why not)
 
 # Setup
 
