@@ -75,8 +75,14 @@ def editNoteTitle():
 
 
 def main():
-    setup()
-    create()
+    print("Welcome to CLINotes!")
+    print("              ")
+    print("Commands:")
+    print("> setup - Setup CLI notes")
+    print("> create - Create a note")
+    print("> editNoteTitle - Edit a note title")
+    print("> displayNotes - Display all notes")
+    print("> displayNote - Display a note")
 
 if __name__ == '__main__':
     main()
